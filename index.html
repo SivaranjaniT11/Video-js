@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>video-js</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+  button {
+    background-color: rgb(23, 209, 218);
+    color: rgb(11, 11, 11);
+    width: 60px;border: none;
+    height: 60px;
+    font-size: 1.5rem;
+    margin-bottom: 2%;
+    border-radius: 50%;
+    display: block;
+    position: absolute;
+    left: calc(50% - 47px);
+    top: calc(50% - 47px);
+  }
+button:hover{
+  transform: scale(1.1);
+  transition: 0.2s ease-in-out;
+}
+  video {
+    position: relative;
+    z-index: -1;
+  }
+  @media  (max-width:576px) {
+    button
+    {
+      display: block;
+    position: absolute;
+    left: calc(50% - 47px);
+    top: calc(20% - 47px);
+    }
+  }
+</style>
+<html>
+
+<body>
+  <div class="container">
+    <button id="btn" type="button"><i class="fa-solid fa-play"></i></button>
+
+    <video id="myVideo" width="100%">
+      <source src="img/carousel1.mp4" type="video/mp4">
+    </video>
+  </div>
+  <script>
+    let video = document.getElementById('myVideo');
+    let button = document.getElementById("btn");
+
+    button.addEventListener('click', () => {
+      if (video.paused) {
+        video.play();
+        button.innerHTML = '<i class="fa-solid fa-pause"></i>';
+      }
+      else {
+        video.pause();
+        button.innerHTML = '<i class="fa-solid fa-play"></i>';
+      }
+    });
+  </script>
+
+
+</body>
